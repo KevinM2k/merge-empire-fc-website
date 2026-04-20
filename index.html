@@ -65,6 +65,56 @@
       text-align: center;
       margin-top: 48px;
     }
+
+    .contact-form {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: #1a2e1a;
+      border: 1px solid rgba(118,232,118,0.25);
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: #e8f0e8;
+      font-size: 15px;
+      font-family: inherit;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #76e876;
+    }
+
+    .contact-form textarea { min-height: 120px; resize: vertical; }
+
+    .contact-form button {
+      background: #76e876;
+      color: #0e1a0e;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      align-self: flex-start;
+    }
+
+    .contact-form button:hover { background: #5cd65c; }
+
+    .form-success {
+      display: none;
+      color: #76e876;
+      font-weight: 700;
+      font-size: 14px;
+      margin-top: 8px;
+    }
   </style>
 </head>
 <body>
@@ -106,8 +156,32 @@
     <p>We may update this Privacy Policy from time to time. We will notify you of any significant changes by updating the date at the bottom of this page. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
 
     <h2>Contact</h2>
-    <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-    <p><a href="mailto:kevin.matthews@validationcloud.io">kevin.matthews@validationcloud.io</a></p>
+    <p>If you have any questions about this Privacy Policy or the App, please get in touch using the form below.</p>
+
+    <form class="contact-form" action="https://formspree.io/f/mgorzbnz" method="POST">
+      <input type="text" name="name" placeholder="Your name" required/>
+      <input type="email" name="email" placeholder="Your email address" required/>
+      <textarea name="message" placeholder="Your message" required></textarea>
+      <input type="hidden" name="_subject" value="Merge Empire FC — Contact Form"/>
+      <button type="submit">Send Message</button>
+    </form>
+    <p class="form-success" id="form-success">✅ Message sent! We'll get back to you soon.</p>
+
+    <script>
+      const form = document.querySelector('.contact-form');
+      form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+        }
+      });
+    </script>
 
     <p class="updated">Last updated: April 2026</p>
   </div>
