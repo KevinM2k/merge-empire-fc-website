@@ -1,189 +1,811 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Merge Empire FC — Privacy Policy</title>
+  <meta name="description" content="Merge Empire FC — the mobile idle/merge football card game. Collect player cards, merge your way to the top, and build a football dynasty."/>
+  <meta property="og:title" content="Merge Empire FC — Build Your Dream Squad"/>
+  <meta property="og:description" content="Collect and merge football player cards, build your ultimate squad, and grow your empire — even when you're offline."/>
+  <meta property="og:image" content="https://img.youtube.com/vi/p0_J0sktclA/maxresdefault.jpg"/>
+  <meta property="og:url" content="https://www.mergeempirefc.co.uk/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <title>Merge Empire FC — Build Your Dream Squad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <style>
+    /* ============================================================
+       THEME TOKENS  — switch via [data-theme] on <html>
+       ============================================================ */
+    :root {
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --radius-sm:  8px;
+      --radius:    16px;
+      --radius-lg: 24px;
+      --t: 0.2s ease;
+    }
+
+    [data-theme="dark"] {
+      --bg-base:       #080f08;
+      --bg-surface:    #0e1a0e;
+      --bg-card:       #122112;
+      --bg-card-hover: #182e18;
+      --text-primary:  #f0f8f0;
+      --text-secondary:#7a9a7a;
+      --accent:        #76e876;
+      --accent-hover:  #5cd65c;
+      --border:        rgba(118,232,118,0.12);
+      --shadow:        rgba(0,0,0,0.5);
+      --nav-bg:        rgba(8,15,8,0.82);
+      --glow:          rgba(118,232,118,0.18);
+    }
+
+    [data-theme="light"] {
+      --bg-base:       #f4faf4;
+      --bg-surface:    #ffffff;
+      --bg-card:       #edf7ed;
+      --bg-card-hover: #dff0df;
+      --text-primary:  #0e1a0e;
+      --text-secondary:#4a6a4a;
+      --accent:        #1a7a1a;
+      --accent-hover:  #156015;
+      --border:        rgba(26,122,26,0.18);
+      --shadow:        rgba(0,0,0,0.08);
+      --nav-bg:        rgba(244,250,244,0.88);
+      --glow:          rgba(26,122,26,0.12);
+    }
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #0e1a0e;
-      color: #e8f0e8;
-      line-height: 1.7;
-      padding: 0 16px 60px;
+      font-family: var(--font);
+      background: var(--bg-base);
+      color: var(--text-primary);
+      line-height: 1.6;
+      transition: background var(--t), color var(--t);
+      -webkit-font-smoothing: antialiased;
     }
 
-    header {
-      text-align: center;
-      padding: 48px 16px 32px;
-      border-bottom: 1px solid rgba(118, 232, 118, 0.2);
-      margin-bottom: 40px;
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+
+    /* ============================================================
+       NAVBAR
+       ============================================================ */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 200;
+      height: 64px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--nav-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: background var(--t);
     }
 
-    header h1 {
-      font-size: clamp(22px, 5vw, 32px);
-      font-weight: 900;
-      color: #76e876;
-      letter-spacing: -0.5px;
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-primary);
+      text-decoration: none;
+      white-space: nowrap;
     }
 
-    header p {
-      margin-top: 8px;
+    .nav-logo .logo-ball { font-size: 22px; line-height: 1; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color var(--t);
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--bg-base) !important;
       font-size: 13px;
-      color: #7a9a7a;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      transition: background var(--t), transform var(--t);
+    }
+    .nav-cta:hover {
+      background: var(--accent-hover);
+      color: var(--bg-base) !important;
+      transform: translateY(-1px);
     }
 
-    .container {
-      max-width: 720px;
+    .theme-btn {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background var(--t);
+      padding: 0;
+    }
+    .theme-btn:hover { background: var(--bg-card-hover); }
+    .theme-btn svg { width: 16px; height: 16px; fill: var(--text-secondary); }
+    .icon-sun  { display: none; }
+    .icon-moon { display: block; }
+    [data-theme="light"] .icon-sun  { display: block; }
+    [data-theme="light"] .icon-moon { display: none; }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+      min-height: 100vh;
+      padding: 128px 24px 88px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 90% 60% at 50% -5%,
+        var(--glow) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: 760px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 8vw, 76px);
+      font-weight: 900;
+      line-height: 1.04;
+      letter-spacing: -2.5px;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: clamp(16px, 2.2vw, 19px);
+      color: var(--text-secondary);
+      max-width: 540px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: var(--bg-base);
+      font-weight: 800;
+      font-size: 16px;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 24px var(--glow);
+      transition: background var(--t), transform var(--t), box-shadow var(--t);
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      color: var(--bg-base);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px var(--glow);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 16px;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      transition: background var(--t), transform var(--t);
+    }
+    .btn-ghost:hover {
+      background: var(--bg-card-hover);
+      color: var(--text-primary);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      margin-top: 56px;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .stat-val {
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-lbl {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: 4px;
+    }
+
+    /* ============================================================
+       SHARED SECTION CHROME
+       ============================================================ */
+    .section {
+      padding: 88px 24px;
+    }
+
+    .section-inner {
+      max-width: 1120px;
       margin: 0 auto;
     }
 
-    h2 {
-      font-size: 18px;
-      font-weight: 800;
-      color: #76e876;
-      margin: 36px 0 10px;
-    }
-
-    p { margin-bottom: 12px; font-size: 15px; color: #c8dac8; }
-
-    ul {
-      margin: 8px 0 12px 20px;
-      font-size: 15px;
-      color: #c8dac8;
-    }
-
-    ul li { margin-bottom: 6px; }
-
-    a { color: #76e876; }
-
-    .updated {
-      font-size: 12px;
-      color: #7a9a7a;
+    .section-hd {
       text-align: center;
-      margin-top: 48px;
+      margin-bottom: 60px;
     }
 
-    .contact-form {
-      margin-top: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      background: #1a2e1a;
-      border: 1px solid rgba(118,232,118,0.25);
-      border-radius: 8px;
-      padding: 12px 14px;
-      color: #e8f0e8;
-      font-size: 15px;
-      font-family: inherit;
-      width: 100%;
-      outline: none;
-      transition: border-color 0.15s;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      border-color: #76e876;
-    }
-
-    .contact-form textarea { min-height: 120px; resize: vertical; }
-
-    .contact-form button {
-      background: #76e876;
-      color: #0e1a0e;
-      border: none;
-      border-radius: 8px;
-      padding: 12px 24px;
-      font-size: 15px;
-      font-weight: 800;
-      cursor: pointer;
-      align-self: flex-start;
-    }
-
-    .contact-form button:hover { background: #5cd65c; }
-
-    .form-success {
-      display: none;
-      color: #76e876;
+    .eyebrow {
+      font-size: 11px;
       font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4.5vw, 46px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      color: var(--text-primary);
+      line-height: 1.1;
+    }
+
+    .section-sub {
+      margin-top: 12px;
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ============================================================
+       VIDEO
+       ============================================================ */
+    .video-section {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .video-frame {
+      position: relative;
+      max-width: 940px;
+      margin: 0 auto;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 32px 96px var(--shadow);
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ============================================================
+       FEATURES
+       ============================================================ */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 26px;
+      transition: background var(--t), transform var(--t), box-shadow var(--t);
+    }
+    .feat-card:hover {
+      background: var(--bg-card-hover);
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px var(--shadow);
+    }
+
+    .feat-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: var(--glow);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .feat-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .feat-desc {
       font-size: 14px;
-      margin-top: 8px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       SCREENSHOTS
+       ============================================================ */
+    .screenshots-section {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .shots-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .shot-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform var(--t), box-shadow var(--t);
+    }
+    .shot-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px var(--shadow);
+    }
+
+    .shot-img {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #000;
+    }
+    .shot-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .shot-card:hover .shot-img img { transform: scale(1.04); }
+
+    .shot-lbl {
+      padding: 14px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    /* ============================================================
+       DOWNLOAD CTA
+       ============================================================ */
+    .cta-section {
+      padding: 112px 24px;
+      text-align: center;
+    }
+
+    .cta-inner { max-width: 580px; margin: 0 auto; }
+
+    .cta-emoji {
+      font-size: 64px;
+      line-height: 1;
+      display: block;
+      margin-bottom: 28px;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(28px, 5vw, 50px);
+      font-weight: 900;
+      letter-spacing: -2px;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      line-height: 1.05;
+    }
+
+    .cta-section p {
+      font-size: 17px;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+    }
+
+    .gplay-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--text-primary);
+      color: var(--bg-base);
+      font-weight: 800;
+      font-size: 17px;
+      padding: 16px 32px;
+      border-radius: var(--radius);
+      transition: opacity var(--t), transform var(--t);
+    }
+    .gplay-btn:hover {
+      opacity: 0.88;
+      color: var(--bg-base);
+      transform: translateY(-2px);
+    }
+    .gplay-btn svg { width: 26px; height: 26px; flex-shrink: 0; }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      padding: 36px 24px;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 14px;
+      color: var(--text-secondary);
+      transition: color var(--t);
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 900px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .features-grid { grid-template-columns: 1fr; }
+      .shots-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 28px; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 100px 16px 64px; }
+      .section { padding: 64px 16px; }
+      .shots-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>⚽ Merge Empire FC</h1>
-    <p>Privacy Policy</p>
-  </header>
 
-  <div class="container">
+  <!-- ── NAVBAR ───────────────────────────────────────────────── -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <span class="logo-ball">⚽</span>
+      <span>Merge Empire FC</span>
+    </a>
 
-    <h2>Overview</h2>
-    <p>Merge Empire FC ("the App") is a mobile idle/merge football card game developed by Kevin Matthews. This Privacy Policy explains what information the App collects, how it is used, and your rights regarding that information.</p>
-
-    <h2>Information We Collect</h2>
-    <p>The App itself does not require an account or collect any personally identifiable information directly. Your game progress is stored locally on your device only.</p>
-    <p>The following data may be collected by third-party services integrated into the App:</p>
-    <ul>
-      <li><strong>Google AdMob</strong> — the App displays advertisements served by Google AdMob. AdMob may collect device identifiers, IP address, and advertising interaction data to serve relevant ads. Please see <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a> for details.</li>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#video">Gameplay</a></li>
+      <li><a href="#screenshots">Screenshots</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
     </ul>
 
-    <h2>Local Data Storage</h2>
-    <p>All game save data (your squad, progress, settings, and purchases) is stored locally on your device using the device's local storage. This data is not transmitted to any server operated by us.</p>
+    <div class="nav-right">
+      <a href="https://play.google.com/store/search?q=merge+empire+fc" class="nav-cta" target="_blank" rel="noopener">Download</a>
+      <button class="theme-btn" id="themeToggle" aria-label="Toggle light/dark mode">
+        <!-- Sun — shown in light mode -->
+        <svg class="icon-sun" viewBox="0 0 24 24">
+          <path d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1zm0-14a1 1 0 0 1-1-1V3a1 1 0 1 1 2 0v1a1 1 0 0 1-1 1zm9 7a1 1 0 0 1-1 1h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1zM4 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1zm14.657-5.657a1 1 0 0 1 0 1.414l-.707.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0zM6.05 17.95a1 1 0 0 1 0 1.414l-.707.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0zm12.607 1.414a1 1 0 0 1-1.414 0l-.707-.707a1 1 0 0 1 1.414-1.414l.707.707a1 1 0 0 1 0 1.414zM5.757 7.757a1 1 0 0 1-1.414 0l-.707-.707a1 1 0 1 1 1.414-1.414l.707.707a1 1 0 0 1 0 1.414z"/>
+        </svg>
+        <!-- Moon — shown in dark mode -->
+        <svg class="icon-moon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
 
-    <h2>In-App Purchases</h2>
-    <p>The App offers optional in-app purchases processed by the Google Play Store. We do not receive or store your payment information. Please refer to <a href="https://play.google.com/about/privacy-security-deception/" target="_blank">Google Play's policies</a> for details on purchase data handling.</p>
+  <main>
 
-    <h2>Advertising</h2>
-    <p>The App uses Google AdMob to display advertisements, including rewarded ads and interstitial ads. AdMob may use cookies and device identifiers to serve relevant ads. You can opt out of personalised advertising through your device settings (Google Settings → Ads → Opt out of Ads Personalisation).</p>
-    <p>Users who purchase the VIP Manager Pass will not be shown interstitial advertisements for the duration of their subscription.</p>
+    <!-- ── HERO ─────────────────────────────────────────────────── -->
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div class="hero-pill">
+          <span>⚽</span> Now on Android
+        </div>
 
-    <h2>Children's Privacy</h2>
-    <p>Merge Empire FC contains no violence, adult content, or social features. The App does not collect any personal information directly from users of any age. All game data is stored locally on the device.</p>
-    <p>In-app purchases require parental approval on devices configured with parental controls through the Google Play Store.</p>
+        <h1>Merge, Build &amp;<br><em>Rule the Pitch</em></h1>
 
-    <h2>Data Retention</h2>
-    <p>Game save data is stored locally on your device and can be deleted at any time by uninstalling the App or clearing the App's data through your device settings. We do not store any personal data on our own servers.</p>
+        <p class="hero-sub">
+          Collect football player cards, merge duplicates to unlock legends, and grow your idle empire — even while you sleep.
+        </p>
 
-    <h2>Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. We will notify you of any significant changes by updating the date at the bottom of this page. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
+        <div class="hero-cta">
+          <a href="https://play.google.com/store/search?q=merge+empire+fc" class="btn-primary" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 512 512" fill="currentColor">
+              <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l236.6-238L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c17.1-9.9 17.1-26 0-35.3l-1.2-.5zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+            </svg>
+            Get it on Google Play
+          </a>
+          <a href="#video" class="btn-ghost">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/>
+            </svg>
+            Watch Gameplay
+          </a>
+        </div>
 
-    <h2>Contact</h2>
-    <p>If you have any questions about this Privacy Policy or the App, please get in touch using the form below.</p>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-val">Free</div>
+            <div class="stat-lbl">to Play</div>
+          </div>
+          <div>
+            <div class="stat-val">100+</div>
+            <div class="stat-lbl">Player Cards</div>
+          </div>
+          <div>
+            <div class="stat-val">Idle</div>
+            <div class="stat-lbl">Earnings</div>
+          </div>
+          <div>
+            <div class="stat-val">No Limit</div>
+            <div class="stat-lbl">Merging</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <form class="contact-form" action="https://formspree.io/f/mgorzbnz" method="POST">
-      <input type="text" name="name" placeholder="Your name" required/>
-      <input type="email" name="email" placeholder="Your email address" required/>
-      <textarea name="message" placeholder="Your message" required></textarea>
-      <input type="hidden" name="_subject" value="Merge Empire FC — Contact Form"/>
-      <button type="submit">Send Message</button>
-    </form>
-    <p class="form-success" id="form-success">✅ Message sent! We'll get back to you soon.</p>
+    <!-- ── VIDEO ─────────────────────────────────────────────────── -->
+    <section class="section video-section" id="video">
+      <div class="section-inner">
+        <div class="section-hd">
+          <div class="eyebrow">Gameplay</div>
+          <h2 class="section-title">See It in Action</h2>
+          <p class="section-sub">Watch Merge Empire FC come to life — collect, merge, and dominate the league.</p>
+        </div>
 
-    <script>
-      const form = document.querySelector('.contact-form');
-      form?.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { Accept: 'application/json' }
-        });
-        if (res.ok) {
-          form.style.display = 'none';
-          document.getElementById('form-success').style.display = 'block';
-        }
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/p0_J0sktclA?rel=0&modestbranding=1"
+            title="Merge Empire FC — Gameplay Trailer"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FEATURES ──────────────────────────────────────────────── -->
+    <section class="section" id="features">
+      <div class="section-inner">
+        <div class="section-hd">
+          <div class="eyebrow">Features</div>
+          <h2 class="section-title">Everything You Need<br>to Build a Dynasty</h2>
+        </div>
+
+        <div class="features-grid">
+          <div class="feat-card">
+            <div class="feat-icon">⚽</div>
+            <div class="feat-title">Merge Player Cards</div>
+            <div class="feat-desc">Combine duplicate cards to level up your players and unlock powerful new versions of your favourite footballers.</div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">🏆</div>
+            <div class="feat-title">Build Your Dream Squad</div>
+            <div class="feat-desc">Recruit legends and rising stars across every position. Each card adds unique stats that shape your lineup.</div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">💰</div>
+            <div class="feat-title">Idle Earnings</div>
+            <div class="feat-desc">Your squad earns coins passively — even when the game is closed. Come back to a richer empire, every single time.</div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">🏟️</div>
+            <div class="feat-title">Upgrade Your Stadium</div>
+            <div class="feat-desc">Invest in training facilities, scouting networks, and stadium improvements to boost your earning potential.</div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">⚡</div>
+            <div class="feat-title">Rewarded Boosts</div>
+            <div class="feat-desc">Watch short ads to earn multipliers, speed up card drops, and unlock bonus packs to supercharge your progress.</div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">👑</div>
+            <div class="feat-title">VIP Manager Pass</div>
+            <div class="feat-desc">Go ad-free and unlock exclusive perks with the VIP Manager Pass — the ultimate edge for serious managers.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SCREENSHOTS ───────────────────────────────────────────── -->
+    <section class="section screenshots-section" id="screenshots">
+      <div class="section-inner">
+        <div class="section-hd">
+          <div class="eyebrow">Screenshots</div>
+          <h2 class="section-title">A Closer Look</h2>
+          <p class="section-sub">Snaps from the pitch — the cards, the merging, and the empire you'll build.</p>
+        </div>
+
+        <div class="shots-grid">
+          <div class="shot-card">
+            <div class="shot-img">
+              <img src="https://img.youtube.com/vi/p0_J0sktclA/maxresdefault.jpg" alt="Merge Empire FC — Squad overview" loading="lazy"/>
+            </div>
+            <div class="shot-lbl">Squad Overview</div>
+          </div>
+          <div class="shot-card">
+            <div class="shot-img">
+              <img src="https://img.youtube.com/vi/p0_J0sktclA/1.jpg" alt="Merge Empire FC — Card merging" loading="lazy"/>
+            </div>
+            <div class="shot-lbl">Card Merging</div>
+          </div>
+          <div class="shot-card">
+            <div class="shot-img">
+              <img src="https://img.youtube.com/vi/p0_J0sktclA/2.jpg" alt="Merge Empire FC — Idle earnings" loading="lazy"/>
+            </div>
+            <div class="shot-lbl">Idle Earnings</div>
+          </div>
+          <div class="shot-card">
+            <div class="shot-img">
+              <img src="https://img.youtube.com/vi/p0_J0sktclA/3.jpg" alt="Merge Empire FC — Stadium upgrades" loading="lazy"/>
+            </div>
+            <div class="shot-lbl">Stadium Upgrades</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── DOWNLOAD CTA ──────────────────────────────────────────── -->
+    <section class="cta-section" id="download">
+      <div class="cta-inner">
+        <span class="cta-emoji">🚀</span>
+        <h2>Ready to Build Your Empire?</h2>
+        <p>Free to download. Start merging and climbing the leagues today.</p>
+
+        <a href="https://play.google.com/store/search?q=merge+empire+fc" class="gplay-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 512 512" fill="currentColor">
+            <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l236.6-238L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c17.1-9.9 17.1-26 0-35.3l-1.2-.5zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+          </svg>
+          Get it on Google Play
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ───────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-brand">⚽ Merge Empire FC</span>
+      <nav class="footer-links">
+        <a href="#features">Features</a>
+        <a href="#video">Gameplay</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="privacy.html#contact">Contact</a>
+      </nav>
+      <span class="footer-copy">© 2026 Kevin Matthews. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <!-- ── THEME ENGINE ──────────────────────────────────────────── -->
+  <script>
+    (function () {
+      var html = document.documentElement;
+      var btn  = document.getElementById('themeToggle');
+      var saved = localStorage.getItem('mefcTheme');
+      var sys   = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      html.setAttribute('data-theme', saved || sys);
+
+      btn.addEventListener('click', function () {
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('mefcTheme', next);
       });
-    </script>
+    })();
+  </script>
 
-    <p class="updated">Last updated: April 2026</p>
-  </div>
 </body>
 </html>

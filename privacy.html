@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Merge Empire FC — Privacy Policy. Learn how the app handles your data."/>
+  <title>Privacy Policy — Merge Empire FC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    /* ============================================================
+       THEME TOKENS  (identical to index.html)
+       ============================================================ */
+    :root {
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --radius-sm:  8px;
+      --radius:    16px;
+      --radius-lg: 24px;
+      --t: 0.2s ease;
+    }
+
+    [data-theme="dark"] {
+      --bg-base:       #080f08;
+      --bg-surface:    #0e1a0e;
+      --bg-card:       #122112;
+      --bg-card-hover: #182e18;
+      --text-primary:  #f0f8f0;
+      --text-secondary:#7a9a7a;
+      --accent:        #76e876;
+      --accent-hover:  #5cd65c;
+      --border:        rgba(118,232,118,0.12);
+      --shadow:        rgba(0,0,0,0.5);
+      --nav-bg:        rgba(8,15,8,0.82);
+      --glow:          rgba(118,232,118,0.18);
+    }
+
+    [data-theme="light"] {
+      --bg-base:       #f4faf4;
+      --bg-surface:    #ffffff;
+      --bg-card:       #edf7ed;
+      --bg-card-hover: #dff0df;
+      --text-primary:  #0e1a0e;
+      --text-secondary:#4a6a4a;
+      --accent:        #1a7a1a;
+      --accent-hover:  #156015;
+      --border:        rgba(26,122,26,0.18);
+      --shadow:        rgba(0,0,0,0.08);
+      --nav-bg:        rgba(244,250,244,0.88);
+      --glow:          rgba(26,122,26,0.12);
+    }
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg-base);
+      color: var(--text-primary);
+      line-height: 1.6;
+      transition: background var(--t), color var(--t);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+
+    /* ============================================================
+       NAVBAR  (identical to index.html)
+       ============================================================ */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 200;
+      height: 64px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--nav-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: background var(--t);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-primary);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-logo .logo-ball { font-size: 22px; line-height: 1; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color var(--t);
+    }
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] { color: var(--accent); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--bg-base);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: background var(--t), transform var(--t);
+    }
+    .nav-cta:hover {
+      background: var(--accent-hover);
+      color: var(--bg-base);
+      transform: translateY(-1px);
+    }
+
+    .theme-btn {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background var(--t);
+      padding: 0;
+    }
+    .theme-btn:hover { background: var(--bg-card-hover); }
+    .theme-btn svg { width: 16px; height: 16px; fill: var(--text-secondary); }
+    .icon-sun  { display: none; }
+    .icon-moon { display: block; }
+    [data-theme="light"] .icon-sun  { display: block; }
+    [data-theme="light"] .icon-moon { display: none; }
+
+    /* ============================================================
+       PAGE HERO
+       ============================================================ */
+    .page-hero {
+      padding: 112px 24px 56px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-hero .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .page-hero p {
+      font-size: 15px;
+      color: var(--text-secondary);
+    }
+
+    /* ============================================================
+       POLICY CONTENT
+       ============================================================ */
+    .policy-wrap {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
+    }
+
+    .policy-wrap h2 {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--accent);
+      margin: 40px 0 10px;
+    }
+    .policy-wrap h2:first-child { margin-top: 0; }
+
+    .policy-wrap p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      line-height: 1.75;
+    }
+
+    .policy-wrap ul {
+      margin: 8px 0 14px 20px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+    .policy-wrap ul li { margin-bottom: 6px; }
+
+    .policy-wrap strong { color: var(--text-primary); }
+
+    .updated {
+      margin-top: 48px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+
+    /* ============================================================
+       CONTACT FORM
+       ============================================================ */
+    .contact-form {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      color: var(--text-primary);
+      font-size: 15px;
+      font-family: var(--font);
+      width: 100%;
+      outline: none;
+      transition: border-color var(--t), background var(--t);
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+    }
+    .contact-form textarea { min-height: 130px; resize: vertical; }
+
+    .contact-form button {
+      background: var(--accent);
+      color: var(--bg-base);
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 13px 26px;
+      font-size: 15px;
+      font-weight: 800;
+      font-family: var(--font);
+      cursor: pointer;
+      align-self: flex-start;
+      transition: background var(--t), transform var(--t);
+    }
+    .contact-form button:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .form-success {
+      display: none;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 15px;
+      margin-top: 8px;
+    }
+
+    /* ============================================================
+       FOOTER  (identical to index.html)
+       ============================================================ */
+    .footer {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      padding: 36px 24px;
+    }
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-brand { font-size: 16px; font-weight: 800; color: var(--text-primary); }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a {
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color var(--t);
+    }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy { font-size: 13px; color: var(--text-secondary); }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVBAR ───────────────────────────────────────────────── -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <span class="logo-ball">⚽</span>
+      <span>Merge Empire FC</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#video">Gameplay</a></li>
+      <li><a href="privacy.html" aria-current="page">Privacy</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <a href="https://play.google.com/store/search?q=merge+empire+fc" class="nav-cta" target="_blank" rel="noopener">Download</a>
+      <button class="theme-btn" id="themeToggle" aria-label="Toggle light/dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24">
+          <path d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1zm0-14a1 1 0 0 1-1-1V3a1 1 0 1 1 2 0v1a1 1 0 0 1-1 1zm9 7a1 1 0 0 1-1 1h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1zM4 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1zm14.657-5.657a1 1 0 0 1 0 1.414l-.707.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0zM6.05 17.95a1 1 0 0 1 0 1.414l-.707.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0zm12.607 1.414a1 1 0 0 1-1.414 0l-.707-.707a1 1 0 0 1 1.414-1.414l.707.707a1 1 0 0 1 0 1.414zM5.757 7.757a1 1 0 0 1-1.414 0l-.707-.707a1 1 0 1 1 1.414-1.414l.707.707a1 1 0 0 1 0 1.414z"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── PAGE HERO ─────────────────────────────────────────────── -->
+  <div class="page-hero">
+    <div class="eyebrow">Legal</div>
+    <h1>Privacy Policy</h1>
+    <p>How Merge Empire FC handles your data — clearly explained.</p>
+  </div>
+
+  <!-- ── POLICY BODY ───────────────────────────────────────────── -->
+  <div class="policy-wrap">
+
+    <h2>Overview</h2>
+    <p>Merge Empire FC ("the App") is a mobile idle/merge football card game developed by Kevin Matthews. This Privacy Policy explains what information the App collects, how it is used, and your rights regarding that information.</p>
+
+    <h2>Information We Collect</h2>
+    <p>The App itself does not require an account or collect any personally identifiable information directly. Your game progress is stored locally on your device only.</p>
+    <p>The following data may be collected by third-party services integrated into the App:</p>
+    <ul>
+      <li><strong>Google AdMob</strong> — the App displays advertisements served by Google AdMob. AdMob may collect device identifiers, IP address, and advertising interaction data to serve relevant ads. Please see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> for details.</li>
+    </ul>
+
+    <h2>Local Data Storage</h2>
+    <p>All game save data (your squad, progress, settings, and purchases) is stored locally on your device using the device's local storage. This data is not transmitted to any server operated by us.</p>
+
+    <h2>In-App Purchases</h2>
+    <p>The App offers optional in-app purchases processed by the Google Play Store. We do not receive or store your payment information. Please refer to <a href="https://play.google.com/about/privacy-security-deception/" target="_blank" rel="noopener">Google Play's policies</a> for details on purchase data handling.</p>
+
+    <h2>Advertising</h2>
+    <p>The App uses Google AdMob to display advertisements, including rewarded ads and interstitial ads. AdMob may use cookies and device identifiers to serve relevant ads. You can opt out of personalised advertising through your device settings (<strong>Google Settings → Ads → Opt out of Ads Personalisation</strong>).</p>
+    <p>Users who purchase the VIP Manager Pass will not be shown interstitial advertisements for the duration of their subscription.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>Merge Empire FC contains no violence, adult content, or social features. The App does not collect any personal information directly from users of any age. All game data is stored locally on the device.</p>
+    <p>In-app purchases require parental approval on devices configured with parental controls through the Google Play Store.</p>
+
+    <h2>Data Retention</h2>
+    <p>Game save data is stored locally on your device and can be deleted at any time by uninstalling the App or clearing the App's data through your device settings. We do not store any personal data on our own servers.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will notify you of any significant changes by updating the date at the bottom of this page. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
+
+    <h2 id="contact">Contact</h2>
+    <p>If you have any questions about this Privacy Policy or the App, please get in touch using the form below.</p>
+
+    <form class="contact-form" action="https://formspree.io/f/mgorzbnz" method="POST">
+      <input type="text"  name="name"    placeholder="Your name"          required/>
+      <input type="email" name="email"   placeholder="Your email address" required/>
+      <textarea           name="message" placeholder="Your message"       required></textarea>
+      <input type="hidden" name="_subject" value="Merge Empire FC — Contact Form"/>
+      <button type="submit">Send Message</button>
+    </form>
+    <p class="form-success" id="formSuccess">✅ Message sent! We'll get back to you soon.</p>
+
+    <p class="updated">Last updated: April 2026</p>
+  </div>
+
+  <!-- ── FOOTER ───────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-brand">⚽ Merge Empire FC</span>
+      <nav class="footer-links">
+        <a href="/">Home</a>
+        <a href="/#features">Features</a>
+        <a href="/#video">Gameplay</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <span class="footer-copy">© 2026 Kevin Matthews. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <!-- ── THEME ENGINE + FORM ──────────────────────────────────── -->
+  <script>
+    (function () {
+      var html = document.documentElement;
+      var btn  = document.getElementById('themeToggle');
+      var saved = localStorage.getItem('mefcTheme');
+      var sys   = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      html.setAttribute('data-theme', saved || sys);
+
+      btn.addEventListener('click', function () {
+        var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('mefcTheme', next);
+      });
+    })();
+
+    var form = document.querySelector('.contact-form');
+    form && form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      }
+    });
+  </script>
+
+</body>
+</html>
