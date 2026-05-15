@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Merge Empire FC</title>
+  <meta name="description" content="Privacy Policy for Merge Empire FC — a mobile idle/merge football card game.">
+  <meta name="theme-color" content="#0a1628">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
+  <link rel="apple-touch-icon" href="assets/icon-512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ---- Privacy-policy page overrides ---- */
+    .pp-nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 8px 0;
+      transition: color 0.2s;
+    }
+    .pp-nav-back:hover { color: var(--green); }
+    .pp-nav-back svg { flex-shrink: 0; }
+
+    .pp-hero {
+      background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy) 100%);
+      padding: calc(var(--navbar-h) + 48px) 24px 56px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pp-hero-icon {
+      font-size: 48px;
+      line-height: 1;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .pp-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(32px, 6vw, 54px);
+      letter-spacing: 1px;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .pp-hero p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .pp-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    .pp-content h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.5px;
+      color: var(--green);
+      margin: 40px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pp-content h2:first-of-type { margin-top: 0; }
+
+    .pp-content p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: rgba(232, 237, 245, 0.8);
+      margin-bottom: 14px;
+    }
+
+    .pp-content ul {
+      margin: 8px 0 14px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .pp-content ul li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(232, 237, 245, 0.8);
+      margin-bottom: 8px;
+    }
+
+    .pp-content ul li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .pp-content a {
+      color: var(--green);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .pp-content a:hover { color: #00e560; }
+
+    .pp-updated {
+      font-size: 13px;
+      color: var(--text-dim);
+      text-align: center;
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Contact form */
+    .contact-form {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: var(--navy-light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      color: var(--text);
+      font-size: 15px;
+      font-family: inherit;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(0, 200, 83, 0.12);
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 12px 28px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: background 0.2s, transform 0.2s;
+      font-family: inherit;
+    }
+
+    .contact-form button:hover {
+      background: #00e560;
+      transform: translateY(-1px);
+    }
+
+    .form-success {
+      display: none;
+      color: var(--green);
+      font-weight: 600;
+      font-size: 15px;
+      margin-top: 12px;
+      padding: 14px 18px;
+      background: var(--green-faint);
+      border: 1px solid rgba(0, 200, 83, 0.2);
+      border-radius: var(--radius-sm);
+    }
+
+    /* Footer simplified on privacy page */
+    .pp-footer {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+    }
+
+    .pp-footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .pp-footer-links a {
+      font-size: 13px;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .pp-footer-links a:hover { color: var(--green); }
+
+    .pp-footer p {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/icon-512.png" alt="Merge Empire FC Logo">
+        <span>Merge Empire FC</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#gameplay">Gameplay</a></li>
+        <li><a href="index.html#cards">Cards</a></li>
+        <li><a href="index.html#divisions">Divisions</a></li>
+        <li><a href="privacy-policy.html">Privacy</a></li>
+        <li><a href="index.html#download" class="nav-cta">Download Free</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="pp-hero">
+    <span class="pp-hero-icon">🔒</span>
+    <h1>Privacy Policy</h1>
+    <p>Merge Empire FC — Kevin Matthews</p>
+  </div>
+
+  <!-- Content (exact text from existing privacy policy) -->
+  <div class="pp-content">
+
+    <h2>Overview</h2>
+    <p>Merge Empire FC ("the App") is a mobile idle/merge football card game developed by Kevin Matthews. This Privacy Policy explains what information the App collects, how it is used, and your rights regarding that information.</p>
+
+    <h2>Information We Collect</h2>
+    <p>The App itself does not require an account or collect any personally identifiable information directly. Your game progress is stored locally on your device only.</p>
+    <p>The following data may be collected by third-party services integrated into the App:</p>
+    <ul>
+      <li><strong>Google AdMob</strong> — the App displays advertisements served by Google AdMob. AdMob may collect device identifiers, IP address, and advertising interaction data to serve relevant ads. Please see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a> for details.</li>
+    </ul>
+
+    <h2>Local Data Storage</h2>
+    <p>All game save data (your squad, progress, settings, and purchases) is stored locally on your device using the device's local storage. This data is not transmitted to any server operated by us.</p>
+
+    <h2>In-App Purchases</h2>
+    <p>The App offers optional in-app purchases processed by the Google Play Store. We do not receive or store your payment information. Please refer to <a href="https://play.google.com/about/privacy-security-deception/" target="_blank" rel="noopener noreferrer">Google Play's policies</a> for details on purchase data handling.</p>
+
+    <h2>Advertising</h2>
+    <p>The App uses Google AdMob to display advertisements, including rewarded ads and interstitial ads. AdMob may use cookies and device identifiers to serve relevant ads. You can opt out of personalised advertising through your device settings (Google Settings → Ads → Opt out of Ads Personalisation).</p>
+    <p>Users who purchase the VIP Manager Pass will not be shown interstitial advertisements for the duration of their subscription.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>Merge Empire FC contains no violence, adult content, or social features. The App does not collect any personal information directly from users of any age. All game data is stored locally on the device.</p>
+    <p>In-app purchases require parental approval on devices configured with parental controls through the Google Play Store.</p>
+
+    <h2>Data Retention</h2>
+    <p>Game save data is stored locally on your device and can be deleted at any time by uninstalling the App or clearing the App's data through your device settings. We do not store any personal data on our own servers.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will notify you of any significant changes by updating the date at the bottom of this page. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
+
+    <h2>Contact</h2>
+    <p>If you have any questions about this Privacy Policy or the App, please get in touch using the form below.</p>
+
+    <form class="contact-form" action="https://formspree.io/f/mgorzbnz" method="POST">
+      <input type="text" name="name" placeholder="Your name" required autocomplete="name">
+      <input type="email" name="email" placeholder="Your email address" required autocomplete="email">
+      <textarea name="message" placeholder="Your message" required></textarea>
+      <input type="hidden" name="_subject" value="Merge Empire FC — Contact Form">
+      <button type="submit">Send Message</button>
+    </form>
+    <div class="form-success" id="form-success">&#10003; Message sent! We'll get back to you soon.</div>
+
+    <p class="pp-updated">Last updated: April 2026</p>
+  </div>
+
+  <!-- Simple footer -->
+  <footer class="pp-footer">
+    <div class="pp-footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#download">Download</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+    <p>&copy; 2026 Kevin Matthews. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle?.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      links.classList.toggle('open');
+    });
+
+    // Contact form AJAX submit
+    const form = document.querySelector('.contact-form');
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+        }
+      } catch (_) { form.submit(); }
+    });
+  </script>
+</body>
+</html>

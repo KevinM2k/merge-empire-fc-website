@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merge Empire FC — Build Your Football Dynasty</title>
+  <meta name="description" content="Collect legendary football cards, merge them into superstars, and lead your club from Sunday League to Champions glory. Free on Android &amp; iOS.">
+  <meta name="theme-color" content="#0a1628">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Merge Empire FC — Build Your Football Dynasty">
+  <meta property="og:description" content="Collect, merge, and manage football cards to rise from Sunday League to Champions glory. Free on Android &amp; iOS.">
+  <meta property="og:image" content="assets/icon-512.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Merge Empire FC">
+  <meta name="twitter:description" content="The ultimate football card merge game. Free on Android &amp; iOS.">
+  <meta name="twitter:image" content="assets/icon-512.png">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
+  <link rel="apple-touch-icon" href="assets/icon-512.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- =====================================================
+       NAVBAR
+       ===================================================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/icon-512.png" alt="Merge Empire FC Logo">
+        <span>Merge Empire FC</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#gameplay">Gameplay</a></li>
+        <li><a href="#cards">Cards</a></li>
+        <li><a href="#divisions">Divisions</a></li>
+        <li><a href="privacy-policy.html">Privacy</a></li>
+        <li><a href="#download" class="nav-cta">Download Free</a></li>
+      </ul>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img
+        src="assets/bg/stadium_bg_t8.jpeg"
+        alt="Champions League Stadium at night"
+        class="hero-stadium"
+      >
+      <div class="hero-overlay"></div>
+      <div class="hero-pitch"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Free on Android &amp; iOS
+      </div>
+
+      <img src="assets/icon-512.png" alt="Merge Empire FC" class="hero-logo">
+
+      <h1 class="hero-title">
+        <span class="line-1">BUILD YOUR</span>
+        <span class="line-2">FOOTBALL</span>
+        <span class="line-3">EMPIRE</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Collect legendary player cards, merge duplicates into superstars,
+        and lead your club from Sunday League all the way to Champions glory.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#download" class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+            <path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 2h14v2H5v-2z"/>
+          </svg>
+          Download Free
+        </a>
+        <a href="#gameplay" class="btn btn-outline">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          Watch Trailer
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num" data-target="7">0</span>
+          <span class="stat-label">Divisions</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="66">0</span>
+          <span class="stat-label">Player Cards</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">&#8734;</span>
+          <span class="stat-label">Merges</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating player cards (desktop only) -->
+    <div class="hero-cards" aria-hidden="true">
+      <div class="hero-card hero-card--left">
+        <div class="hc-tier legend">LEGEND</div>
+        <img src="assets/players/DEF_t8_m.png" alt="">
+        <div class="hc-info">
+          <span class="hc-pos">DEF</span>
+          <span class="hc-rating">93</span>
+        </div>
+      </div>
+      <div class="hero-card hero-card--center">
+        <div class="hc-tier ultimate">ULTIMATE</div>
+        <img src="assets/players/FWD_t9_m.png" alt="">
+        <div class="hc-info">
+          <span class="hc-pos">FWD</span>
+          <span class="hc-rating">99</span>
+        </div>
+      </div>
+      <div class="hero-card hero-card--right">
+        <div class="hc-tier legend">LEGEND</div>
+        <img src="assets/players/GK_t8_m.png" alt="">
+        <div class="hc-info">
+          <span class="hc-pos">GK</span>
+          <span class="hc-rating">93</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       MARQUEE — scrolling division names
+       ===================================================== -->
+  <div class="marquee-wrapper" aria-hidden="true">
+    <div class="marquee-track">
+      <span>SUNDAY LEAGUE</span><span class="marquee-dot">⚽</span>
+      <span>AMATEUR LEAGUE</span><span class="marquee-dot">⚽</span>
+      <span>REGIONAL LEAGUE</span><span class="marquee-dot">⚽</span>
+      <span>NATIONAL LEAGUE</span><span class="marquee-dot">⚽</span>
+      <span>ELITE LEAGUE</span><span class="marquee-dot">⚽</span>
+      <span>CONTINENTAL LEAGUE</span><span class="marquee-dot">⚽</span>
+      <span>CHAMPIONS LEAGUE</span><span class="marquee-dot">⚽</span>
+      <!-- duplicate for seamless loop -->
+      <span>SUNDAY LEAGUE</span><span class="marquee-dot">⚽</span>
+      <span>AMATEUR LEAGUE</span><span class="marquee-dot">⚽</span>
+      <span>REGIONAL LEAGUE</span><span class="marquee-dot">⚽</span>
+      <span>NATIONAL LEAGUE</span><span class="marquee-dot">⚽</span>
+      <span>ELITE LEAGUE</span><span class="marquee-dot">⚽</span>
+      <span>CONTINENTAL LEAGUE</span><span class="marquee-dot">⚽</span>
+      <span>CHAMPIONS LEAGUE</span><span class="marquee-dot">⚽</span>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       FEATURES
+       ===================================================== -->
+  <section class="features" id="features">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-eyebrow">How to Play</span>
+        <h2 class="section-title">Everything a Football Manager Needs</h2>
+        <p class="section-subtitle">Four core pillars that will keep you coming back for just one more match</p>
+      </div>
+
+      <div class="features-grid">
+
+        <div class="feature-card reveal" style="--delay: 0ms">
+          <div class="feature-icon" style="--icon-color: #00c853">
+            <img src="assets/ui/manager_hint.png" alt="Merge icon">
+          </div>
+          <h3>Merge to Dominate</h3>
+          <p>Place two identical cards side by side to fuse them into a more powerful version. Every merge edges you closer to fielding an unstoppable team of Legends.</p>
+        </div>
+
+        <div class="feature-card reveal" style="--delay: 100ms">
+          <div class="feature-icon" style="--icon-color: #f5c518">
+            <img src="assets/trophies/champions_cup.png" alt="Trophy icon">
+          </div>
+          <h3>Idle Club Income</h3>
+          <p>Your club earns coins 24/7 — even while you're away. Return to a treasury bursting with coins and spend them on new card packs, upgrades, or scouting.</p>
+        </div>
+
+        <div class="feature-card reveal" style="--delay: 200ms">
+          <div class="feature-icon" style="--icon-color: #e53935">
+            <img src="assets/penalty/ball.png" alt="Football icon">
+          </div>
+          <h3>Simulate Match Days</h3>
+          <p>Compete in league fixtures across 7 divisions. Win matches, top the table, and earn promotion — or risk relegation if you let the squad stagnate.</p>
+        </div>
+
+        <div class="feature-card reveal" style="--delay: 300ms">
+          <div class="feature-icon" style="--icon-color: #1e88e5">
+            <img src="assets/club/STADIUM_t8.png" alt="Stadium icon">
+          </div>
+          <h3>Build Your Club</h3>
+          <p>Construct and upgrade your stadium, training ground, media centre, and merch store. Each asset tier unlocks more powerful players and higher revenues.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       GAMEPLAY VIDEO
+       ===================================================== -->
+  <section class="video-section" id="gameplay">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-eyebrow">Gameplay</span>
+        <h2 class="section-title">See It In Action</h2>
+        <p class="section-subtitle">Watch the full gameplay walkthrough and discover how to build your empire from scratch</p>
+      </div>
+
+      <div class="video-wrapper reveal">
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/p0_J0sktclA?rel=0&modestbranding=1&color=white"
+            title="Merge Empire FC — Gameplay Walkthrough"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       PLAYER CARDS SHOWCASE
+       ===================================================== -->
+  <section class="cards-showcase" id="cards">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">Player Cards</span>
+        <h2 class="section-title">Collect, Merge, Evolve</h2>
+        <p class="section-subtitle">66+ unique cards spanning 5 tiers — from humble Bronze Rookies to transcendent Legends</p>
+      </div>
+    </div>
+
+    <div class="cards-scroll-wrapper" id="cardsScroll">
+      <div class="cards-track" id="cardsTrack">
+
+        <!-- Bronze -->
+        <div class="player-card tier-bronze">
+          <div class="pc-inner">
+            <div class="pc-header">
+              <span class="pc-pos">GK</span>
+              <span class="pc-rating">52</span>
+            </div>
+            <div class="pc-image-wrap">
+              <img src="assets/players/GK_t2_m.png" alt="Bronze Goalkeeper" loading="lazy">
+            </div>
+            <div class="pc-footer">
+              <span class="pc-tier-badge">BRONZE PRO</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Silver Rising -->
+        <div class="player-card tier-silver">
+          <div class="pc-inner">
+            <div class="pc-header">
+              <span class="pc-pos">DEF</span>
+              <span class="pc-rating">61</span>
+            </div>
+            <div class="pc-image-wrap">
+              <img src="assets/players/DEF_t3_m.png" alt="Silver Defender" loading="lazy">
+            </div>
+            <div class="pc-footer">
+              <span class="pc-tier-badge">SILVER RISING</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Silver Star -->
+        <div class="player-card tier-silver">
+          <div class="pc-inner">
+            <div class="pc-header">
+              <span class="pc-pos">MID</span>
+              <span class="pc-rating">70</span>
+            </div>
+            <div class="pc-image-wrap">
+              <img src="assets/players/MID_t4_m.png" alt="Silver Midfielder" loading="lazy">
+            </div>
+            <div class="pc-footer">
+              <span class="pc-tier-badge">SILVER STAR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gold Elite -->
+        <div class="player-card tier-gold">
+          <div class="pc-inner">
+            <div class="pc-header">
+              <span class="pc-pos">FWD</span>
+              <span class="pc-rating">78</span>
+            </div>
+            <div class="pc-image-wrap">
+              <img src="assets/players/FWD_t5_m.png" alt="Gold Forward" loading="lazy">
+            </div>
+            <div class="pc-footer">
+              <span class="pc-tier-badge">GOLD ELITE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gold Superstar (female) -->
+        <div class="player-card tier-gold">
+          <div class="pc-inner">
+            <div class="pc-header">
+              <span class="pc-pos">MID</span>
+              <span class="pc-rating">85</span>
+            </div>
+            <div class="pc-image-wrap">
+              <img src="assets/players/MID_t6_f.png" alt="Gold Superstar Midfielder" loading="lazy">
+            </div>
+            <div class="pc-footer">
+              <span class="pc-tier-badge">GOLD SUPERSTAR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Champion (Defender female) -->
+        <div class="player-card tier-champion">
+          <div class="pc-inner">
+            <div class="pc-header">
+              <span class="pc-pos">DEF</span>
+              <span class="pc-rating">90</span>
+            </div>
+            <div class="pc-image-wrap">
+              <img src="assets/players/DEF_t7_f.png" alt="Champion Defender" loading="lazy">
+            </div>
+            <div class="pc-footer">
+              <span class="pc-tier-badge">CHAMPION</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Legend GK male -->
+        <div class="player-card tier-legend">
+          <div class="pc-inner">
+            <div class="pc-header">
+              <span class="pc-pos">GK</span>
+              <span class="pc-rating">93</span>
+            </div>
+            <div class="pc-image-wrap">
+              <img src="assets/players/GK_t8_m.png" alt="Legend Goalkeeper" loading="lazy">
+            </div>
+            <div class="pc-footer">
+              <span class="pc-tier-badge">LEGEND</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Legend MID female -->
+        <div class="player-card tier-legend">
+          <div class="pc-inner">
+            <div class="pc-header">
+              <span class="pc-pos">MID</span>
+              <span class="pc-rating">93</span>
+            </div>
+            <div class="pc-image-wrap">
+              <img src="assets/players/MID_t8_f.png" alt="Legend Midfielder" loading="lazy">
+            </div>
+            <div class="pc-footer">
+              <span class="pc-tier-badge">LEGEND</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Legend DEF male -->
+        <div class="player-card tier-legend">
+          <div class="pc-inner">
+            <div class="pc-header">
+              <span class="pc-pos">DEF</span>
+              <span class="pc-rating">93</span>
+            </div>
+            <div class="pc-image-wrap">
+              <img src="assets/players/DEF_t8_m.png" alt="Legend Defender" loading="lazy">
+            </div>
+            <div class="pc-footer">
+              <span class="pc-tier-badge">LEGEND</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ultimate FWD male -->
+        <div class="player-card tier-ultimate">
+          <div class="pc-inner">
+            <div class="pc-header">
+              <span class="pc-pos">FWD</span>
+              <span class="pc-rating">99</span>
+            </div>
+            <div class="pc-image-wrap">
+              <img src="assets/players/FWD_t9_m.png" alt="Ultimate Forward" loading="lazy">
+            </div>
+            <div class="pc-footer">
+              <span class="pc-tier-badge">ULTIMATE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ultimate FWD female -->
+        <div class="player-card tier-ultimate">
+          <div class="pc-inner">
+            <div class="pc-header">
+              <span class="pc-pos">FWD</span>
+              <span class="pc-rating">99</span>
+            </div>
+            <div class="pc-image-wrap">
+              <img src="assets/players/FWD_t9_f.png" alt="Ultimate Forward" loading="lazy">
+            </div>
+            <div class="pc-footer">
+              <span class="pc-tier-badge">ULTIMATE</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="tier-legend-bar" aria-label="Card tier progression">
+      <div class="tier-item"><span class="tier-dot bronze"></span><span>Bronze</span></div>
+      <svg width="20" height="10" viewBox="0 0 20 10" aria-hidden="true"><path d="M0 5h16M11 1l5 4-5 4" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="tier-item"><span class="tier-dot silver"></span><span>Silver</span></div>
+      <svg width="20" height="10" viewBox="0 0 20 10" aria-hidden="true"><path d="M0 5h16M11 1l5 4-5 4" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="tier-item"><span class="tier-dot gold"></span><span>Gold</span></div>
+      <svg width="20" height="10" viewBox="0 0 20 10" aria-hidden="true"><path d="M0 5h16M11 1l5 4-5 4" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="tier-item"><span class="tier-dot legend"></span><span>Legend</span></div>
+      <svg width="20" height="10" viewBox="0 0 20 10" aria-hidden="true"><path d="M0 5h16M11 1l5 4-5 4" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="tier-item"><span class="tier-dot ultimate"></span><span>Ultimate</span></div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       DIVISIONS LADDER
+       ===================================================== -->
+  <section class="divisions" id="divisions">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-eyebrow">The Ladder</span>
+        <h2 class="section-title">7 Divisions. One Destiny.</h2>
+        <p class="section-subtitle">Start at Sunday League and claw your way up to Champions League glory through seven increasingly brutal divisions</p>
+      </div>
+
+      <div class="divisions-ladder">
+
+        <div class="division-row reveal" style="--div-color: #ffd700; --delay: 0ms">
+          <div class="div-trophy">
+            <img src="assets/trophies/champions_cup.png" alt="Champions League Trophy">
+          </div>
+          <div class="div-info">
+            <h3>Champions League</h3>
+            <p>The pinnacle of football. Only Legend-tier squads survive at this level.</p>
+            <span class="div-rating">Squad Rating 82–93+</span>
+          </div>
+          <span class="div-arrow">&#9650;</span>
+        </div>
+
+        <div class="division-row reveal" style="--div-color: #ff7043; --delay: 60ms">
+          <div class="div-trophy">
+            <img src="assets/trophies/continental.png" alt="Continental League Trophy">
+          </div>
+          <div class="div-info">
+            <h3>Continental League</h3>
+            <p>Elite competition against Gold Superstar lineups. Home advantage is critical.</p>
+            <span class="div-rating">Squad Rating 74–84</span>
+          </div>
+          <span class="div-arrow">&#9650;</span>
+        </div>
+
+        <div class="division-row reveal" style="--div-color: #ab47bc; --delay: 120ms">
+          <div class="div-trophy">
+            <img src="assets/trophies/elite_league.png" alt="Elite League Trophy">
+          </div>
+          <div class="div-info">
+            <h3>Elite League</h3>
+            <p>Gold Elite squads dominate here — upgrade fast or face relegation.</p>
+            <span class="div-rating">Squad Rating 66–78</span>
+          </div>
+          <span class="div-arrow">&#9650;</span>
+        </div>
+
+        <div class="division-row reveal" style="--div-color: #42a5f5; --delay: 180ms">
+          <div class="div-trophy">
+            <img src="assets/trophies/national_league.png" alt="National League Trophy">
+          </div>
+          <div class="div-info">
+            <h3>National League</h3>
+            <p>Silver Star squads are the minimum. You'll need Gold cards to top the table.</p>
+            <span class="div-rating">Squad Rating 56–68</span>
+          </div>
+          <span class="div-arrow">&#9650;</span>
+        </div>
+
+        <div class="division-row reveal" style="--div-color: #66bb6a; --delay: 240ms">
+          <div class="div-trophy">
+            <img src="assets/trophies/regional_league.png" alt="Regional League Trophy">
+          </div>
+          <div class="div-info">
+            <h3>Regional League</h3>
+            <p>Silver Rising cards start to shine. Build your core roster and start merging.</p>
+            <span class="div-rating">Squad Rating 45–60</span>
+          </div>
+          <span class="div-arrow">&#9650;</span>
+        </div>
+
+        <div class="division-row reveal" style="--div-color: #78909c; --delay: 300ms">
+          <div class="div-trophy">
+            <img src="assets/trophies/amateur_cup.png" alt="Amateur League Trophy">
+          </div>
+          <div class="div-info">
+            <h3>Amateur League</h3>
+            <p>Bronze Pro cards are needed. Time to start merging and building your squad.</p>
+            <span class="div-rating">Squad Rating 30–48</span>
+          </div>
+          <span class="div-arrow">&#9650;</span>
+        </div>
+
+        <div class="division-row reveal" style="--div-color: #8d6e63; --delay: 360ms">
+          <div class="div-trophy">
+            <img src="assets/trophies/sunday_league.png" alt="Sunday League Trophy">
+          </div>
+          <div class="div-info">
+            <h3>Sunday League</h3>
+            <p>Every legend starts here. Place your first card and begin the journey to glory.</p>
+            <span class="div-rating">Squad Rating 15–32</span>
+          </div>
+          <span class="div-arrow" style="opacity:0">&#9650;</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       CLUB BUILDING
+       ===================================================== -->
+  <section class="club-section" id="club">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-eyebrow">Club Building</span>
+        <h2 class="section-title">More Than Just Players</h2>
+        <p class="section-subtitle">Build and upgrade your club infrastructure to maximise revenue and unlock higher-tier talent</p>
+      </div>
+
+      <div class="club-grid">
+
+        <div class="club-asset reveal" style="--delay: 0ms">
+          <div class="club-asset-img">
+            <img src="assets/club/STADIUM_t8.png" alt="World-class stadium" loading="lazy">
+          </div>
+          <div class="club-asset-info">
+            <h4>Stadium</h4>
+            <p>Upgrade from a modest ground to a world-class arena. Each tier boosts matchday revenue and signals your ambition to rival clubs.</p>
+          </div>
+        </div>
+
+        <div class="club-asset reveal" style="--delay: 100ms">
+          <div class="club-asset-img">
+            <img src="assets/club/TRAINING_t8.png" alt="Elite training ground" loading="lazy">
+          </div>
+          <div class="club-asset-info">
+            <h4>Training Ground</h4>
+            <p>World-class facilities accelerate player development, unlock higher-tier card slots, and give your squad the edge in tight matches.</p>
+          </div>
+        </div>
+
+        <div class="club-asset reveal" style="--delay: 200ms">
+          <div class="club-asset-img">
+            <img src="assets/club/MERCH_t4.png" alt="Merchandise store" loading="lazy">
+          </div>
+          <div class="club-asset-info">
+            <h4>Merchandise Store</h4>
+            <p>Sell your club's brand worldwide. A thriving merch operation generates passive income that compounds even when you're offline.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       DOWNLOAD CTA
+       ===================================================== -->
+  <section class="download-section" id="download">
+    <div class="download-bg">
+      <img src="assets/bg/stadium_bg_t7.jpeg" alt="" aria-hidden="true" class="download-stadium" loading="lazy">
+      <div class="download-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="download-content reveal">
+        <img src="assets/icon-512.png" alt="Merge Empire FC" class="download-logo">
+        <h2>Ready to Build Your Empire?</h2>
+        <p>Download free on Android &amp; iOS. Start merging. Start winning.</p>
+        <div class="download-buttons">
+          <a
+            href="https://play.google.com/store/apps/details?id=com.mergeempirefc.app"
+            class="download-btn google-play"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Get Merge Empire FC on Google Play"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+              <path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.49 1.49 0 0 0-.227.906v20.34a1.49 1.49 0 0 0 .227.906l11.908-11.14zm11.553 10.15l-11.48-11.48 14.277 8.087zM1.337 23.076l14.277-8.087-11.48 11.48z"/>
+            </svg>
+            <div>
+              <small>Get it on</small>
+              <strong>Google Play</strong>
+            </div>
+          </a>
+          <a
+            href="https://apps.apple.com/gb/app/merge-empire-fc/id6766095870"
+            class="download-btn app-store"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download Merge Empire FC on the App Store"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            <div>
+              <small>Download on the</small>
+              <strong>App Store</strong>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <img src="assets/icon-512.png" alt="Merge Empire FC">
+            <span>Merge Empire FC</span>
+          </a>
+          <p>The ultimate football card merge experience. Collect. Merge. Dominate.</p>
+        </div>
+
+        <div class="footer-links">
+          <h5>Game</h5>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#cards">Player Cards</a></li>
+            <li><a href="#divisions">Divisions</a></li>
+            <li><a href="#gameplay">Gameplay Video</a></li>
+            <li><a href="#club">Club Building</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h5>Download</h5>
+          <ul>
+            <li>
+              <a href="https://play.google.com/store/apps/details?id=com.mergeempirefc.app" target="_blank" rel="noopener noreferrer">
+                Google Play
+              </a>
+            </li>
+            <li>
+              <a href="https://apps.apple.com/gb/app/merge-empire-fc/id6766095870" target="_blank" rel="noopener noreferrer">
+                App Store
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Kevin Matthews. All rights reserved.</p>
+        <p>Merge Empire FC is not affiliated with any official football organisation.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
