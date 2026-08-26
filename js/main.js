@@ -1,231 +1,83 @@
 /* =========================================================
-   MERGE EMPIRE FC — WEBSITE JS
+   MERGE EMPIRE FC — website behaviour
+   Motion here exists to explain the mechanic: the pack deals,
+   the ladder reveals in order. Everything is gated on
+   prefers-reduced-motion. See /DESIGN.md.
    ========================================================= */
 
-/* --- Navbar scroll effect ------------------------------ */
-(function initNavbar() {
-  const navbar = document.getElementById('navbar');
-  if (!navbar) return;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const onScroll = () => {
-    if (window.scrollY > 20) navbar.classList.add('scrolled');
-    else navbar.classList.remove('scrolled');
-  };
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll(); // run once on load
+/* --- navbar background once you leave the top ------------ */
+(function navbar() {
+  const nav = document.getElementById('navbar');
+  if (!nav) return;
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 20);
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 })();
 
-/* --- Mobile nav toggle --------------------------------- */
-(function initMobileNav() {
+/* --- mobile nav ------------------------------------------ */
+(function mobileNav() {
   const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
+  const links = document.getElementById('navLinks');
   if (!toggle || !links) return;
-
-  toggle.addEventListener('click', () => {
-    toggle.classList.toggle('open');
-    links.classList.toggle('open');
-  });
-
-  // Close menu when a link is tapped
-  links.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      toggle.classList.remove('open');
-      links.classList.remove('open');
-    });
-  });
+  const set = open => {
+    toggle.classList.toggle('open', open);
+    links.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  };
+  toggle.addEventListener('click', () => set(!links.classList.contains('open')));
+  links.addEventListener('click', e => { if (e.target.tagName === 'A') set(false); });
 })();
 
-/* --- Scroll-reveal animations -------------------------- */
-(function initReveal() {
-  const items = document.querySelectorAll('.reveal');
+/* --- deal the pack --------------------------------------- */
+(function pack() {
+  const pack = document.getElementById('pack');
+  const deal = document.getElementById('deal');
+  if (!pack || !deal) return;
+
+  const label = () => deal.textContent =
+    pack.classList.contains('opened') ? 'Shuffle back' : 'Open the pack';
+
+  deal.addEventListener('click', () => { pack.classList.toggle('opened'); label(); });
+
+  // Deal it once unprompted: the mechanic should be visible without a click.
+  if (!reduce) setTimeout(() => { pack.classList.add('opened'); label(); }, 900);
+
+  // Pointer tilt, fine pointers only — a hand of cards has weight.
+  if (!reduce && matchMedia('(pointer:fine)').matches) {
+    pack.addEventListener('pointermove', e => {
+      const r = pack.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5;
+      const y = (e.clientY - r.top) / r.height - .5;
+      pack.style.transform = `rotateY(${x * 7}deg) rotateX(${-y * 7}deg)`;
+    });
+    pack.addEventListener('pointerleave', () => { pack.style.transform = ''; });
+  }
+})();
+
+/* --- reveal on scroll, in sequence ------------------------ */
+(function reveal() {
+  const items = document.querySelectorAll('.rung, .div-row, .asset');
   if (!items.length) return;
+  if (reduce) { items.forEach(el => el.classList.add('in')); return; }
 
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-  );
-
-  items.forEach(el => observer.observe(el));
-})();
-
-/* --- Animated stat counters ---------------------------- */
-(function initCounters() {
-  const nums = document.querySelectorAll('.stat-num[data-target]');
-  if (!nums.length) return;
-
-  const easeOut = t => 1 - Math.pow(1 - t, 3);
-
-  const animateCounter = (el) => {
-    const target = parseInt(el.dataset.target, 10);
-    const duration = 1600;
-    const start = performance.now();
-
-    const tick = now => {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      el.textContent = Math.round(easeOut(progress) * target);
-      if (progress < 1) requestAnimationFrame(tick);
-      else el.textContent = target;
-    };
-
-    requestAnimationFrame(tick);
-  };
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-
-  nums.forEach(el => observer.observe(el));
-})();
-
-/* --- Card row drag-to-scroll --------------------------- */
-(function initCardScroll() {
-  const wrapper = document.getElementById('cardsScroll');
-  if (!wrapper) return;
-
-  let isDown = false;
-  let startX;
-  let scrollLeft;
-
-  wrapper.addEventListener('mousedown', e => {
-    isDown = true;
-    wrapper.style.cursor = 'grabbing';
-    startX = e.pageX - wrapper.offsetLeft;
-    scrollLeft = wrapper.scrollLeft;
-  });
-
-  wrapper.addEventListener('mouseleave', () => {
-    isDown = false;
-    wrapper.style.cursor = 'grab';
-  });
-
-  wrapper.addEventListener('mouseup', () => {
-    isDown = false;
-    wrapper.style.cursor = 'grab';
-  });
-
-  wrapper.addEventListener('mousemove', e => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - wrapper.offsetLeft;
-    const walk = (x - startX) * 1.6;
-    wrapper.scrollLeft = scrollLeft - walk;
-  });
-
-  // Touch swipe (let browser handle naturally, just block vertical on horizontal scroll)
-  let touchStartX = 0;
-  let touchStartY = 0;
-
-  wrapper.addEventListener('touchstart', e => {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-  }, { passive: true });
-
-  wrapper.addEventListener('touchmove', e => {
-    const dx = Math.abs(e.touches[0].clientX - touchStartX);
-    const dy = Math.abs(e.touches[0].clientY - touchStartY);
-    if (dx > dy && dx > 8) e.stopPropagation();
-  }, { passive: true });
-})();
-
-/* --- Smooth anchor scroll for nav links ---------------- */
-(function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', e => {
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (!target) return;
-      e.preventDefault();
-
-      const navHeight = parseInt(
-        getComputedStyle(document.documentElement).getPropertyValue('--navbar-h'),
-        10
-      ) || 68;
-
-      window.scrollTo({
-        top: target.getBoundingClientRect().top + window.scrollY - navHeight,
-        behavior: 'smooth'
-      });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (!entry.isIntersecting) return;
+      setTimeout(() => entry.target.classList.add('in'), i * 55);
+      io.unobserve(entry.target);
     });
-  });
+  }, { threshold: .2, rootMargin: '0px 0px -40px' });
+
+  items.forEach(el => io.observe(el));
 })();
 
-/* --- Divisions ladder — staggered entrance ------------- */
-(function initDivisionStagger() {
-  const rows = document.querySelectorAll('.division-row.reveal');
-  rows.forEach((row, i) => {
-    row.style.setProperty('--delay', `${i * 60}ms`);
-  });
-})();
-
-/* --- Parallax on hero background (subtle) -------------- */
-(function initParallax() {
-  const stadium = document.querySelector('.hero-stadium');
-  if (!stadium || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  const onScroll = () => {
-    const scrolled = window.scrollY;
-    if (scrolled > window.innerHeight) return;
-    stadium.style.transform = `translateY(${scrolled * 0.25}px)`;
-  };
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-})();
-
-/* --- Card hover tilt (mouse tracking) ------------------ */
-(function initCardTilt() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if ('ontouchstart' in window) return; // skip on touch devices
-
-  const cards = document.querySelectorAll('.player-card');
-
-  cards.forEach(card => {
-    const inner = card.querySelector('.pc-inner');
-    if (!inner) return;
-
-    card.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      const cx   = rect.left + rect.width  / 2;
-      const cy   = rect.top  + rect.height / 2;
-      const rx   = ((e.clientX - cx) / (rect.width  / 2)) * 8;
-      const ry   = ((e.clientY - cy) / (rect.height / 2)) * -8;
-      inner.style.transform = `rotateY(${rx}deg) rotateX(${ry}deg)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      inner.style.transform = '';
-    });
-  });
-})();
-
-/* --- Hero card entrance animation override on load ----- */
-(function initHeroEntrance() {
-  const heroContent = document.querySelector('.hero-content');
-  if (!heroContent) return;
-
-  heroContent.style.opacity = '0';
-  heroContent.style.transform = 'translateY(24px)';
-
-  window.addEventListener('load', () => {
-    requestAnimationFrame(() => {
-      heroContent.style.transition = 'opacity 0.9s ease, transform 0.9s ease';
-      heroContent.style.opacity = '1';
-      heroContent.style.transform = 'translateY(0)';
-    });
-  });
+/* --- the store bar follows you past the hero -------------- */
+(function storeBar() {
+  const bar = document.getElementById('bar');
+  const arena = document.querySelector('.arena');
+  if (!bar || !arena) { if (bar) bar.classList.add('show'); return; }
+  new IntersectionObserver(([e]) => bar.classList.toggle('show', !e.isIntersecting), { threshold: .15 })
+    .observe(arena);
 })();

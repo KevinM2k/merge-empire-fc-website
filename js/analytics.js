@@ -25,26 +25,26 @@ async function loadAnalytics() {
 function injectStyles() {
   const css = `
     .cc-banner {
-      position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 9999;
+      position: fixed; left: 16px; right: 16px; bottom: calc(64px + 16px); z-index: 9999;
       max-width: 560px; margin: 0 auto;
-      background: #0f1f38; color: #e8eef7;
-      border: 1px solid rgba(255,255,255,0.12); border-radius: 12px;
+      background: #0d111b; color: #f2f5fa;
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 14px;
       padding: 12px 16px; box-shadow: 0 10px 32px rgba(0,0,0,0.4);
       display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
-      font-family: 'Inter', system-ui, sans-serif; font-size: 13px; line-height: 1.45;
+      font-family: Archivo, system-ui, sans-serif; font-size: 13px; line-height: 1.45;
       transform: translateY(160%); transition: transform .3s ease;
     }
     .cc-banner.cc-show { transform: translateY(0); }
-    .cc-banner p { margin: 0; flex: 1 1 220px; color: #c7d2e2; }
-    .cc-banner a { color: #6ea8fe; }
+    .cc-banner p { margin: 0; flex: 1 1 220px; color: #8a99b5; }
+    .cc-banner a { color: #ffd23f; }
     .cc-actions { display: flex; gap: 8px; flex: 0 0 auto; margin-left: auto; }
     .cc-btn {
       border: 0; border-radius: 8px; padding: 7px 14px; cursor: pointer;
       font-weight: 700; font-size: 12px; font-family: inherit;
     }
-    .cc-accept { background: #2f7bff; color: #fff; }
-    .cc-accept:hover { background: #1f6bf0; }
-    .cc-decline { background: rgba(255,255,255,0.08); color: #c7d2e2; }
+    .cc-accept { background: #ffd23f; color: #0a0d14; }
+    .cc-accept:hover { background: #ffdf6b; }
+    .cc-decline { background: rgba(255,255,255,0.08); color: #8a99b5; }
     .cc-decline:hover { background: rgba(255,255,255,0.16); }
   `;
   const style = document.createElement('style');
