@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Your Account — Merge Empire FC</title>
+  <meta name="description" content="How to request deletion of your Merge Empire FC account and the data stored against it.">
+  <meta name="theme-color" content="#0a1628">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
+  <link rel="apple-touch-icon" href="assets/icon-512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ---- Privacy-policy page overrides ---- */
+    .pp-nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 8px 0;
+      transition: color 0.2s;
+    }
+    .pp-nav-back:hover { color: var(--green); }
+    .pp-nav-back svg { flex-shrink: 0; }
+
+    .pp-hero {
+      background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy) 100%);
+      padding: calc(var(--navbar-h) + 48px) 24px 56px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pp-hero-icon {
+      font-size: 48px;
+      line-height: 1;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .pp-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(32px, 6vw, 54px);
+      letter-spacing: 1px;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .pp-hero p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .pp-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    .pp-content h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.5px;
+      color: var(--green);
+      margin: 40px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pp-content h2:first-of-type { margin-top: 0; }
+
+    .pp-content p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: rgba(232, 237, 245, 0.8);
+      margin-bottom: 14px;
+    }
+
+    .pp-content ul {
+      margin: 8px 0 14px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .pp-content ul li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(232, 237, 245, 0.8);
+      margin-bottom: 8px;
+    }
+
+    .pp-content ul li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .pp-content a {
+      color: var(--green);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .pp-content a:hover { color: #00e560; }
+
+    .pp-updated {
+      font-size: 13px;
+      color: var(--text-dim);
+      text-align: center;
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Contact form */
+    .contact-form {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: var(--navy-light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      color: var(--text);
+      font-size: 15px;
+      font-family: inherit;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(0, 200, 83, 0.12);
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 12px 28px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: background 0.2s, transform 0.2s;
+      font-family: inherit;
+    }
+
+    .contact-form button:hover {
+      background: #00e560;
+      transform: translateY(-1px);
+    }
+
+    .form-success {
+      display: none;
+      color: var(--green);
+      font-weight: 600;
+      font-size: 15px;
+      margin-top: 12px;
+      padding: 14px 18px;
+      background: var(--green-faint);
+      border: 1px solid rgba(0, 200, 83, 0.2);
+      border-radius: var(--radius-sm);
+    }
+
+    /* Footer simplified on privacy page */
+    .pp-footer {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+    }
+
+    .pp-footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .pp-footer-links a {
+      font-size: 13px;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .pp-footer-links a:hover { color: var(--green); }
+
+    .pp-footer p {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+  </style>
+
+  <!-- Firebase Analytics (consent-gated) -->
+  <script type="module" src="js/analytics.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/icon-512.png" alt="Merge Empire FC Logo">
+        <span>Merge Empire FC</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#gameplay">Gameplay</a></li>
+        <li><a href="index.html#cards">Cards</a></li>
+        <li><a href="index.html#divisions">Divisions</a></li>
+        <li><a href="privacy-policy.html">Privacy</a></li>
+        <li><a href="index.html#download" class="nav-cta">Download Free</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="pp-hero">
+    <span class="pp-hero-icon">🗑️</span>
+    <h1>Delete Your Account</h1>
+    <p>Merge Empire FC — Kevin Matthews</p>
+  </div>
+
+  <!-- Content -->
+  <div class="pp-content">
+
+    <h2>What "your account" means here</h2>
+    <p>Merge Empire FC has no account of its own. You sign in with an account you already have — your Google account or your Apple ID — so that your progress can be backed up to the cloud and your results can appear on the global leaderboards. Signing in creates a record on our side, held against that sign-in, and this page is how you ask us to delete it.</p>
+    <p>Deleting that record does not touch your Google or Apple account, which remains entirely yours. You can start playing again at any time by signing in afresh.</p>
+
+    <h2>How to request deletion</h2>
+    <ol>
+      <li>Fill in the form below, using the email address of the Google or Apple account you sign in with — that address is how we find your record.</li>
+      <li>Write <strong>Delete my account</strong> in the message, along with anything else you want us to know.</li>
+      <li>We will delete your data and confirm by reply, within 30 days of the request.</li>
+    </ol>
+
+    <form class="contact-form" action="https://formspree.io/f/mgorzbnz" method="POST">
+      <input type="text" name="name" placeholder="Your name" required autocomplete="name">
+      <input type="email" name="email" placeholder="The email address you sign in with" required autocomplete="email">
+      <textarea name="message" placeholder="Delete my account" required></textarea>
+      <input type="hidden" name="_subject" value="Merge Empire FC — Account Deletion Request">
+      <button type="submit">Request Deletion</button>
+    </form>
+    <div class="form-success" id="form-success">&#10003; Request sent. We&rsquo;ll confirm by email once your data has been deleted.</div>
+
+    <h2>What is deleted</h2>
+    <ul>
+      <li><strong>Your sign-in record</strong> — the account identifier we hold, and the email address Google or Apple gave us when you signed in.</li>
+      <li><strong>Your cloud save</strong> — your club, your squad, your season progress and your settings, as backed up to our servers.</li>
+      <li><strong>Your leaderboard entries</strong> — every one of them, across all ranking periods and regions.</li>
+      <li><strong>Your messages</strong> — any feedback or support requests you have sent us.</li>
+    </ul>
+
+    <h2>What is kept, and for how long</h2>
+    <ul>
+      <li><strong>Anonymous usage and crash data.</strong> This is recorded against a device identifier rather than against your account, and cannot be traced back to you once your account is gone. Crash reports are kept for up to 90 days, usage analytics for no longer than 14 months.</li>
+      <li><strong>Purchase records.</strong> In-app purchases are processed by the Google Play Store and the Apple App Store, and the record of them belongs to those stores rather than to us. Both retain it to meet their own legal and tax obligations. We never receive or store your payment details.</li>
+      <li><strong>Backups.</strong> Deleted data is cleared from our backups within 30 days of the deletion.</li>
+    </ul>
+
+    <h2>The save on your device</h2>
+    <p>The game also keeps a copy of your progress on the phone itself, so that it can be played offline. Deleting your account does not remove that local copy, and nothing from it is sent to us afterwards. To remove it as well, uninstall the game or clear its data through your device settings.</p>
+
+    <p class="pp-updated">Last updated: August 2026</p>
+  </div>
+
+  <!-- Simple footer -->
+  <footer class="pp-footer">
+    <div class="pp-footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#download">Download</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="delete-account.html">Delete Account</a>
+    </div>
+    <p>&copy; 2026 Kevin Matthews. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle?.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      links.classList.toggle('open');
+    });
+
+    // Contact form AJAX submit
+    const form = document.querySelector('.contact-form');
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+        }
+      } catch (_) { form.submit(); }
+    });
+  </script>
+</body>
+</html>
