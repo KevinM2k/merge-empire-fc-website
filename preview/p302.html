@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merge Empire FC — P302</title>
+<!--
+THESIS: The results page every football fan checked, rebuilt as a store page. The one thing teletext could never do was show a picture, so the card art punches through the mosaic and reads as depth breaking a simple surface.
+OWN-WORLD: Black ground, the seven teletext hues, double-height mosaic headers, page numbers, fastext tabs. Azeret Mono on a character grid. Snap-and-hold motion, never eased.
+STORY: This looks like a plain results service -> the art proves it is not -> the fastext bar installs it.
+FIRST VIEWPORT: Header row with page number and live clock, double-height cyan headline typing itself, yellow pitch rows, then a full-colour merge strip; fastext store tabs pinned to the bottom edge.
+FORM: Ceefax page 302. Candidate 6 of the grounded list. Seed 9ff51c61.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --tx-black:#000; --tx-red:#ff2b2b; --tx-green:#22e622; --tx-yellow:#ffe500;
+  --tx-blue:#1f5cff; --tx-magenta:#ff45ff; --tx-cyan:#22e5e5; --tx-white:#fff;
+  --bar-h:56px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#000;color:var(--tx-white);
+  font:400 16px/1.5 'Azeret Mono',ui-monospace,monospace;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.screen{max-width:1080px;margin:0 auto;padding:0 16px calc(var(--bar-h) + 40px)}
+
+/* scanline veil, very light so the art stays clean */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:70;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px);opacity:.5}
+
+/* ---------- header row ---------- */
+.hdr{position:sticky;top:0;z-index:50;background:#000;display:flex;justify-content:space-between;gap:12px;
+  padding:14px 0 12px;font-weight:800;letter-spacing:.04em;font-size:clamp(12px,2.4vw,16px);border-bottom:2px solid var(--tx-blue)}
+.hdr .pno{color:var(--tx-white);background:var(--tx-blue);padding:3px 9px}
+.hdr .nm{color:var(--tx-yellow)}
+.hdr .clk{color:var(--tx-green)}
+
+/* ---------- double-height headings ---------- */
+.dh{font-weight:800;text-transform:uppercase;line-height:.92;letter-spacing:.02em;
+  font-size:clamp(30px,7.4vw,74px);color:var(--tx-cyan);margin:34px 0 8px}
+.dh.y{color:var(--tx-yellow)} .dh.g{color:var(--tx-green)} .dh.m{color:var(--tx-magenta)}
+.dh .cur{display:inline-block;width:.55em;height:.86em;background:currentColor;vertical-align:-.06em;animation:blink 1.05s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+.rows{margin:14px 0 6px}
+.rows p{color:var(--tx-yellow);font-size:clamp(13px,2.5vw,17px);line-height:1.75;letter-spacing:.01em}
+.rows p.w{color:var(--tx-white)}
+.rows p.g{color:var(--tx-green)}
+
+/* mosaic rule, drawn as blocks not a line */
+.mosaic{display:flex;gap:3px;margin:22px 0;height:14px}
+.mosaic i{flex:1;background:var(--c,var(--tx-blue));opacity:.9}
+
+/* ---------- the colour break ---------- */
+.break{margin:26px 0 10px;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:var(--tx-blue);padding:3px}
+.break figure{background:#000;position:relative}
+.break img{width:100%;aspect-ratio:1;object-fit:cover}
+.break figcaption{position:absolute;left:0;bottom:0;right:0;background:rgba(0,0,0,.82);
+  padding:7px 9px;font-size:clamp(10px,2vw,13px);font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.break figure:nth-child(1) figcaption{color:var(--tx-white)}
+.break figure:nth-child(2) figcaption{color:var(--tx-cyan)}
+.break figure:nth-child(3) figcaption{color:var(--tx-yellow)}
+.break figure:nth-child(3)::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 3px var(--tx-yellow);
+  animation:flash 2.4s steps(1) infinite}
+@keyframes flash{0%,70%{opacity:1}71%,100%{opacity:.25}}
+
+/* ---------- store tabs in-page ---------- */
+.tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:3px;margin:26px 0 8px}
+.tab{padding:16px 18px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#000;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:clamp(12px,2.2vw,15px);
+  transition:filter .12s}
+.tab:hover{filter:brightness(1.25)}
+.tab.r{background:var(--tx-red);color:#fff} .tab.g{background:var(--tx-green)}
+.tab.y{background:var(--tx-yellow)} .tab.c{background:var(--tx-cyan)}
+.tab small{font-weight:400;opacity:.8;text-transform:none;letter-spacing:0}
+
+/* ---------- results table ---------- */
+.table{width:100%;border-collapse:collapse;margin-top:16px;font-size:clamp(12px,2.3vw,16px)}
+.table th{text-align:left;color:#000;background:var(--tx-cyan);padding:8px 10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.table td{padding:8px 10px;border-bottom:1px solid #123;color:var(--tx-yellow)}
+.table tr:hover td{background:#06121f;color:var(--tx-white)}
+.table td.n{color:var(--tx-green);font-weight:800;width:3em}
+.table td.t{color:var(--tx-white)}
+
+/* ---------- ladder strip ---------- */
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:3px;background:var(--tx-magenta);padding:3px}
+.strip figure{background:#000;position:relative}
+.strip img{width:100%;aspect-ratio:1;object-fit:cover}
+.strip b{position:absolute;top:0;left:0;background:var(--tx-magenta);color:#000;padding:2px 7px;font-size:12px;font-weight:800}
+
+/* ---------- reveal block ---------- */
+.reveal-wrap{border:3px solid var(--tx-green);padding:18px;margin-top:20px}
+.reveal-wrap .q{color:var(--tx-green);font-weight:800;letter-spacing:.05em;text-transform:uppercase;font-size:clamp(12px,2.3vw,15px)}
+.hidden-txt{color:#000;background:#000;transition:none;font-size:clamp(13px,2.4vw,17px);line-height:1.8;display:block;margin-top:10px}
+.hidden-txt.shown{color:var(--tx-white);background:transparent}
+.revbtn{margin-top:14px;background:var(--tx-green);color:#000;border:0;padding:11px 20px;cursor:pointer;
+  font:800 13px/1 'Azeret Mono',monospace;letter-spacing:.12em;text-transform:uppercase}
+.revbtn:hover{filter:brightness(1.2)}
+
+/* ---------- video ---------- */
+.tube{position:relative;aspect-ratio:16/9;background:#000;border:3px solid var(--tx-blue);margin-top:16px}
+.tube iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* ---------- fastext bar ---------- */
+.fastext{position:fixed;left:0;right:0;bottom:0;height:var(--bar-h);z-index:60;display:flex}
+.fastext a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;color:#000;font-weight:800;
+  font-size:clamp(10.5px,2.1vw,14px);letter-spacing:.06em;text-transform:uppercase;transition:filter .12s}
+.fastext a:hover{filter:brightness(1.25)}
+.fastext .r{background:var(--tx-red);color:#fff} .fastext .g{background:var(--tx-green)}
+.fastext .y{background:var(--tx-yellow)} .fastext .c{background:var(--tx-cyan)}
+
+.foot{color:#5b6b7a;font-size:12.5px;margin-top:40px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot a:hover{color:var(--tx-cyan)}
+.foot nav{display:flex;gap:18px;flex-wrap:wrap}
+
+@media(max-width:640px){
+  .break{grid-template-columns:1fr 1fr}
+  .break figure:nth-child(3){grid-column:span 2}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="screen">
+
+  <div class="hdr">
+    <span class="pno">P302</span>
+    <span class="nm">MERGE EMPIRE FC</span>
+    <span class="clk" id="clk">--:--:--</span>
+  </div>
+
+  <h1 class="dh" id="typed">BUILD YOUR EMPIRE<span class="cur"></span></h1>
+
+  <div class="rows">
+    <p>MERGE TWO OF THE SAME PLAYER AND GET A</p>
+    <p>BETTER ONE. KEEP GOING UNTIL THE SUNDAY</p>
+    <p>LEAGUE KID IS A GOLD-CARD SUPERSTAR.</p>
+    <p class="w">FREE ON IOS AND ANDROID.</p>
+  </div>
+
+  <div class="mosaic"><i style="--c:var(--tx-red)"></i><i style="--c:var(--tx-yellow)"></i><i style="--c:var(--tx-green)"></i><i style="--c:var(--tx-cyan)"></i><i style="--c:var(--tx-magenta)"></i><i style="--c:var(--tx-blue)"></i><i style="--c:var(--tx-white)"></i></div>
+
+  <div class="break">
+    <figure><img src="../assets/players/FWD_t3_m.png" alt="A tier three forward" loading="eager"><figcaption>Duplicate</figcaption></figure>
+    <figure><img src="../assets/players/FWD_t3_m.png" alt="A second identical forward" loading="eager"><figcaption>+ Duplicate</figcaption></figure>
+    <figure><img src="../assets/players/FWD_t8_m.png" alt="The merged gold-tier forward" loading="eager"><figcaption>= Tier VIII</figcaption></figure>
+  </div>
+
+  <div class="tabs">
+    <a class="tab r" href="https://play.google.com/store/apps/details?id=com.mergeempirefc.app" target="_blank" rel="noopener">Google Play <small>4.8&#9733; / 29</small></a>
+    <a class="tab g" href="https://apps.apple.com/gb/app/merge-empire-fc/id6766095870" target="_blank" rel="noopener">App Store <small>5.0&#9733; / 10</small></a>
+  </div>
+
+  <h2 class="dh y">P304 THE LADDER</h2>
+  <div class="rows"><p>ONE STRIKER. NINE TIERS. SAME PLAYER.</p></div>
+  <div class="strip">
+    <figure><b>I</b><img src="../assets/players/FWD_t1_m.png" alt="Tier 1" loading="lazy"></figure>
+    <figure><b>II</b><img src="../assets/players/FWD_t2_m.png" alt="Tier 2" loading="lazy"></figure>
+    <figure><b>III</b><img src="../assets/players/FWD_t3_m.png" alt="Tier 3" loading="lazy"></figure>
+    <figure><b>IV</b><img src="../assets/players/FWD_t4_m.png" alt="Tier 4" loading="lazy"></figure>
+    <figure><b>V</b><img src="../assets/players/FWD_t5_m.png" alt="Tier 5" loading="lazy"></figure>
+    <figure><b>VI</b><img src="../assets/players/FWD_t6_m.png" alt="Tier 6" loading="lazy"></figure>
+    <figure><b>VII</b><img src="../assets/players/FWD_t7_m.png" alt="Tier 7" loading="lazy"></figure>
+    <figure><b>VIII</b><img src="../assets/players/FWD_t8_m.png" alt="Tier 8" loading="lazy"></figure>
+    <figure><b>IX</b><img src="../assets/players/FWD_t9_m.png" alt="Tier 9" loading="lazy"></figure>
+  </div>
+
+  <h2 class="dh g">P306 DIVISIONS</h2>
+  <table class="table">
+    <thead><tr><th>Div</th><th>Competition</th><th>What it takes</th></tr></thead>
+    <tbody>
+      <tr><td class="n">7</td><td class="t">Sunday League</td><td>Eleven strangers and a scruffy kid up front</td></tr>
+      <tr><td class="n">6</td><td class="t">Amateur</td><td>First real signings, first real wages</td></tr>
+      <tr><td class="n">5</td><td class="t">Regional</td><td>Sponsors start returning your calls</td></tr>
+      <tr><td class="n">4</td><td class="t">Semi-Pro</td><td>A training ground worth the name</td></tr>
+      <tr><td class="n">3</td><td class="t">National</td><td>Deadline day starts costing you sleep</td></tr>
+      <tr><td class="n">2</td><td class="t">Elite</td><td>Cup runs, and the money that comes with them</td></tr>
+      <tr><td class="n">1</td><td class="t">Champions</td><td>The one with the big-eared trophy</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="dh m">P308 UNDERNEATH</h2>
+  <div class="reveal-wrap">
+    <span class="q">Q. What separates this from every other football merge game?</span>
+    <span class="hidden-txt" id="ans">A. A whole manager sim. Deadline day with a clock that runs out. Seven divisions promoted on merit. A stadium, a training ground, sponsors and merchandise that each upgrade and each pay. Cup runs with prize money. Global leaderboards. Income that ticks over while the app is shut.</span>
+    <button class="revbtn" id="revbtn">Press reveal</button>
+  </div>
+
+  <h2 class="dh">P310 GAMEPLAY</h2>
+  <div class="tube"><iframe src="https://www.youtube-nocookie.com/embed/TiQ95ilm3-I?rel=0" title="Merge Empire FC gameplay" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+  <div class="mosaic" style="margin-top:34px"><i style="--c:var(--tx-white)"></i><i style="--c:var(--tx-blue)"></i><i style="--c:var(--tx-magenta)"></i><i style="--c:var(--tx-cyan)"></i><i style="--c:var(--tx-green)"></i><i style="--c:var(--tx-yellow)"></i><i style="--c:var(--tx-red)"></i></div>
+
+  <div class="foot">
+    <span>&copy; 2026 KEVIN MATTHEWS</span>
+    <nav><a href="../privacy-policy.html">P890 PRIVACY</a><a href="../delete-account.html">P891 DELETE ACCOUNT</a><a href="index.html">OTHER DESIGNS</a></nav>
+  </div>
+</div>
+
+<nav class="fastext">
+  <a class="r" href="https://play.google.com/store/apps/details?id=com.mergeempirefc.app" target="_blank" rel="noopener">Google Play</a>
+  <a class="g" href="https://apps.apple.com/gb/app/merge-empire-fc/id6766095870" target="_blank" rel="noopener">App Store</a>
+  <a class="y" href="#typed">Top</a>
+  <a class="c" href="#ans">Depth</a>
+</nav>
+
+<script>
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// live clock, teletext header style
+const clk = document.getElementById('clk');
+const tick = () => { const d = new Date();
+  clk.textContent = d.toTimeString().slice(0,8); };
+tick(); setInterval(tick, 1000);
+
+// headline types itself, snap not eased
+const h = document.getElementById('typed'), full = 'BUILD YOUR EMPIRE';
+if(!reduce){
+  h.innerHTML = '<span class="cur"></span>';
+  let i = 0;
+  const t = setInterval(() => {
+    i++;
+    h.innerHTML = full.slice(0,i) + '<span class="cur"></span>';
+    if(i >= full.length) clearInterval(t);
+  }, 55);
+}
+
+// teletext reveal
+const btn = document.getElementById('revbtn'), ans = document.getElementById('ans');
+btn.addEventListener('click', () => {
+  const on = ans.classList.toggle('shown');
+  btn.textContent = on ? 'Press conceal' : 'Press reveal';
+});
+</script>
+</body>
+</html>
