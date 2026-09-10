@@ -1,22 +1,22 @@
-Standard app-ads.txt for www.mergeempirefc.co.uk
-​Generated according to IAB Tech Lab Specification
-​==========================================
-​Publisher Transparency Declaration
-​==========================================
-​ownerdomain=mergeempirefc.co.uk
-​==========================================
-​Direct Publisher Entries
-​==========================================
-​Google AdMob Direct
-​google.com, pub-0386196346828968, DIRECT, f08c47fec0942fa0
-​Meta / Facebook Audience Network Direct
-​facebook.com, 1720958099254460, DIRECT, c3e20eee3f780d68
-​Unity Ads Direct
-​unity.com, 129557140, DIRECT, 96cabb5fbdde37a7
-​==========================================
-​Unity Ads Authorized Resellers
-​==========================================
-​openx.com, 561446248, RESELLER, 6a698e2ec38604c6
+# Standard app-ads.txt for www.mergeempirefc.co.uk
+# Generated according to IAB Tech Lab Specification
+# ==========================================
+# Publisher Transparency Declaration
+# ==========================================
+ownerdomain=mergeempirefc.co.uk
+# ==========================================
+# Direct Publisher Entries
+# ==========================================
+# Google AdMob Direct
+google.com, pub-0386196346828968, DIRECT, f08c47fec0942fa0
+# Meta / Facebook Audience Network Direct
+facebook.com, 1720958099254460, DIRECT, c3e20eee3f780d68
+# Unity Ads Direct
+unity.com, 129557140, DIRECT, 96cabb5fbdde37a7
+# ==========================================
+# Unity Ads Authorized Resellers
+# ==========================================
+openx.com, 561446248, RESELLER, 6a698e2ec38604c6
 openx.com, 562174952, RESELLER, 6a698e2ec38604c6
 openx.com, 537153564, RESELLER, 6a698e2ec38604c6
 openx.com, 540393169, RESELLER, 6a698e2ec38604c6
