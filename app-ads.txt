@@ -13,6 +13,8 @@ google.com, pub-0386196346828968, DIRECT, f08c47fec0942fa0
 facebook.com, 1720958099254460, DIRECT, c3e20eee3f780d68
 # Unity Ads Direct
 unity.com, 129557140, DIRECT, 96cabb5fbdde37a7
+# Vungle / Liftoff Direct
+vungle.com, 561e8d936b8d90f61a0011d7, DIRECT, c107d686becd2d77
 # ==========================================
 # Unity Ads Authorized Resellers
 # ==========================================
