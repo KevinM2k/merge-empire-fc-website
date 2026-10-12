@@ -15,6 +15,8 @@ facebook.com, 1720958099254460, DIRECT, c3e20eee3f780d68
 unity.com, 129557140, DIRECT, 96cabb5fbdde37a7
 # Vungle / Liftoff Direct
 vungle.com, 561e8d936b8d90f61a0011d7, DIRECT, c107d686becd2d77
+# InMobi Direct
+inmobi.com, a5d39f923e184694a6663f0edd7669ac, DIRECT, 83e75a7ae333ca9d
 # ==========================================
 # Unity Ads Authorized Resellers
 # ==========================================
