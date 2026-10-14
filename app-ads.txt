@@ -165,7 +165,7 @@ ogury.com, 065d4ff5-a269-44be-9634-9d4d7af2dfc3, RESELLER
 undertone.com, 4108, RESELLER
 verve.com, 1008379, RESELLER, 0c8f5958fc2d6270
 connekt.ai, 5585919044, RESELLER
-dauup.com, 34222, RESELLER, 4daba13e2b0dfd9
+dauup.com, 34222, RESELLER, 4daba13e2b0dfd92
 indexexchange.com, 214183, RESELLER, 50b1c356f2c5c8fc
 smaato.com, 1100059563, RESELLER, 07bcf65f187117b4
 smaato.com, 1100058938, RESELLER, 07bcf65f187117b4
