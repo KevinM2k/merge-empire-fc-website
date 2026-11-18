@@ -31,7 +31,7 @@ Played in short bursts on a phone, often one-handed, with progress continuing be
 
 ## Capabilities and Constraints
 
-- Merge duplicate player cards to evolve them; 66 player cards across 8 tiers.
+- Merge duplicate player cards to evolve them across 9 tiers (Football Icon is scout-only).
 - Seven divisions from Sunday League upward; cups, sponsors, transfers and deadline day.
 - Club buildings — stadium, training, sponsor, merch.
 - Optional sign-in (Google/Apple) for cloud saves and global leaderboards.
