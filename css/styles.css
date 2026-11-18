@@ -158,7 +158,7 @@ section{position:relative;padding:120px 0}
 .rung.in{opacity:1;transform:none}
 .rung:hover{border-color:var(--t,var(--edge-hi))}
 .rung img{width:100%;aspect-ratio:1;object-fit:cover}
-.rung .lab{padding:12px 14px 16px;display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.rung .lab{padding:12px 14px 16px;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px}
 .rung .lab b{font-family:'Big Shoulders Display',sans-serif;font-size:24px;font-weight:800;color:var(--t,#fff);line-height:1}
 .rung .lab span{font:500 10.5px/1.3 Archivo,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);text-align:right}
 
