@@ -97,12 +97,6 @@ h1,h2,h3,.display{
 .store.ghost{background:transparent;color:var(--paper);border:1.5px solid var(--edge-hi);box-shadow:none}
 .store.ghost:hover{border-color:var(--gold);color:var(--gold)}
 
-.proof{display:flex;align-items:center;gap:22px;margin-top:26px;flex-wrap:wrap}
-.rating{display:flex;align-items:baseline;gap:9px}
-.rating b{font-family:'Big Shoulders Display',sans-serif;font-size:34px;font-weight:800;color:var(--gold);line-height:1}
-.rating .stars{color:var(--gold);letter-spacing:1px;font-size:13px}
-.rating span{font-size:13.5px;color:var(--mute)}
-.proof-div{width:1px;height:30px;background:var(--edge)}
 
 /* ---------------------------------------------------------
    CARDS — the atom

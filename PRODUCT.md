@@ -48,7 +48,7 @@ Played in short bursts on a phone, often one-handed, with progress continuing be
 
 ## Evidence on Hand
 
-- **Real store ratings**, checked 2026-08-26: Google Play 4.8★ from 29 reviews; App Store 5.0★ from 10 ratings (GB storefront). These are small samples and must be shown with their counts.
+- **Store ratings**: not shown on the site (hard-coded numbers go stale). Link to the stores instead.
 - **Gameplay video** on YouTube, id `TiQ95ilm3-I`.
 - **Game art** in `assets/`: 60+ player card renders across tiers and positions, stadium photography, trophies, club buildings, penalty sprites.
 - No download-count band, no press, no testimonials, no awards. None of these may be invented.
