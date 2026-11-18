@@ -28,9 +28,9 @@ The accent set is the game's own tier ladder and is used for nothing else:
 | `--bronze` | `#ff9a3c` | Bronze Pro |
 | `--silver` | `#cfd8dc` | Silver Rising / Silver Star |
 | `--gold` | `#ffd23f` | Gold Elite / Gold Superstar |
-| `--champion` | `#b79cff` | Champion |
-| `--legend` | `#e6a8ff` | Legend |
-| `--ultimate` | `#ffe27a` | Ultimate |
+| `--champion` | `#b79cff` | Legendary Icon |
+| `--legend` | `#e6a8ff` | World Legend |
+| `--ultimate` | `#ffe27a` | Football Icon |
 
 Gold is the primary action colour because it is the tier a player is climbing
 towards. A colour outside this table is a bug. The one non-tier hue is
